@@ -1,0 +1,48 @@
+<!-- <head>
+  <title>simple-todos</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+
+  {{> hello}}
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template> -->
+
+<head>
+  <title>My Todo List</title>
+</head>
+
+<body>
+    <div class="container">
+      <header>
+        <h1>Todo List ({{incompleteCount}})</h1>
+        <label class="hide-completed">
+          <input type="checkbox" checked="{{hideCompleted}}" />
+          Hide Completed Tasks
+        </label>
+        <form class="new-task">
+          <input type="text" name="text" placeholder="Type to add new tasks" />
+        </form>
+      </header>
+
+      <ul>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
+
+<template name="task">
+  <li class="{{#if checked}}checked{{/if}}">
+    <button class="delete">&times;</button>
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+    <span><b>Task :</b> {{text}} <br><b> Date:</b> {{createdAt}}</span>
+
+  </li>
+</template>
